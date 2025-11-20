@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { mockSupabase } from '../services/mockSupabase';
 import { Car } from '../types';
 import { CarCard } from '../components/CarCard';
-import { Heart, List, User, Search } from 'lucide-react';
+import { Heart, List, User as UserIcon, Search } from 'lucide-react';
 
 export const Dashboard: React.FC = () => {
   const { user, isAuthenticated, isLoading } = useAuth();
@@ -105,7 +105,7 @@ export const Dashboard: React.FC = () => {
                 onClick={() => { setActiveTab('overview'); setSearchParams({}); }}
                 className={`w-full flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors ${activeTab === 'overview' ? 'bg-primary-50 text-primary-700 border-l-4 border-primary-600' : 'text-gray-600 hover:bg-gray-50'}`}
               >
-                <User className="h-4 w-4" /> Overview
+                <UserIcon className="h-4 w-4" /> Overview
               </button>
               <button 
                 onClick={() => { setActiveTab('listings'); setSearchParams({ tab: 'listings' }); }}

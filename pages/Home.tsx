@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/Button';
 import { CarCard } from '../components/CarCard';
 import { mockSupabase } from '../services/mockSupabase';
-import { Car as CarModel, CarCategory } from '../types';
-import { Search, ArrowRight, ShieldCheck, Zap, Clock, Car } from 'lucide-react';
+import { Car, CarCategory } from '../types';
+import { Search, ArrowRight, ShieldCheck, Zap, Clock, Car as CarIcon } from 'lucide-react';
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
-  const [featuredCars, setFeaturedCars] = useState<CarModel[]>([]);
+  const [featuredCars, setFeaturedCars] = useState<Car[]>([]);
   const [searchParams, setSearchParams] = useState({ brand: '', model: '', maxPrice: '' });
 
   useEffect(() => {
@@ -121,9 +121,8 @@ export const Home: React.FC = () => {
                 onClick={() => navigate(`/listings?category=${cat}`)}
                 className="group cursor-pointer bg-gray-50 hover:bg-primary-50 border border-gray-100 hover:border-primary-100 rounded-xl p-6 flex flex-col items-center justify-center transition-all duration-300"
               >
-                {/* Icon Placeholder - In real app use specific SVGs */}
                 <div className="w-16 h-10 bg-gray-200 group-hover:bg-primary-200 rounded-lg mb-3 flex items-center justify-center transition-colors">
-                  <Car className="h-6 w-6 text-gray-500 group-hover:text-primary-600" />
+                  <CarIcon className="h-6 w-6 text-gray-500 group-hover:text-primary-600" />
                 </div>
                 <span className="font-medium text-gray-900 group-hover:text-primary-700">{cat}</span>
               </div>
